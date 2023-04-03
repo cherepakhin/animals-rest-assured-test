@@ -1,4 +1,4 @@
-### Behave тестирование
+### Behave тестирование RestAssured
 
 Для проведения тестов использован RestAssured<br/>
  [https://github.com/rest-assured/rest-assured](https://github.com/rest-assured/rest-assured/wiki/GettingStarted).
