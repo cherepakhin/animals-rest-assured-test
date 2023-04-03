@@ -9,9 +9,9 @@
 
 ```shell
 # Проведение теста
-restassured-test$ mvn clean test
+animals-restassured-test$ mvn clean test
 # Просмотр отчета в браузере
-restassured-test$ ./allure serve target/surefire-reports/
+animals-restassured-test$ ./allure serve target/surefire-reports/
 ```
 
 ### Скользкие вопросы
