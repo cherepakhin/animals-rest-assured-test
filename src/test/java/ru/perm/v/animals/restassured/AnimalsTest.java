@@ -15,11 +15,9 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
 public class AnimalsTest {
     private final static String ANIMAL_PATH = HOST + "animal/";
     @Test
-
     @Feature("Verify CRUID Operations on Animal")
     @Story("Animal requests test")
     @Step("Step Animal GET ID=1 Request and STATUS_CODE=200")
-
     @Severity(SeverityLevel.NORMAL) // уровень критичности
     @DisplayName("Animal GET ID Request")
     @Description("Test Description : Verify the HTTP answer of animal id=1 is status=200")
@@ -28,7 +26,6 @@ public class AnimalsTest {
     }
 
     @Test
-
     @Feature("Verify CRUID Operations on Animal")
     @Story("Animal requests test")
     @Step("Step Animal GET ID Request")
@@ -46,7 +43,7 @@ public class AnimalsTest {
     @DisplayName("Show failed Animal GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Show failed test")
-    public void getId_1andStatusCode400() {
+    public void getId_1_and_StatusCode400() {
         given().when().get(ANIMAL_PATH + "1").then().statusCode(200);
     }
 }

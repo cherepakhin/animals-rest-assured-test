@@ -15,17 +15,17 @@ public class CountryTest {
     private final static String COUNTRY_PATH = HOST + "country/";
 
     @Test
-//    @Step("Step Country GET ID Request")
+    @Step("Step Country GET ID Request")
     @DisplayName("Country GET ID Request")
-//    @Story("Country GET ID Request")
+    @Story("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the HTTP answer of country id=1 is status=200")
     public void getId_1andStatusCode200() {
-        given().when().get(COUNTRY_PATH + "1").then().statusCode(400);
+        given().when().get(COUNTRY_PATH + "1").then().statusCode(200);
     }
 
     @Test
-//    @Step("Step Country GET ID=1 Request")
+    @Step("Step Country GET ID=1 Request")
     @DisplayName("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the details of country of id=1")
