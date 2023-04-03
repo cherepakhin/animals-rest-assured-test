@@ -2,6 +2,7 @@ package ru.perm.v.animals.restassured;
 
 import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 import ru.perm.v.animals.restassured.dto.AnimalDto;
 
@@ -13,6 +14,7 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
  */
 @Epic("REST API Animal")
 public class AnimalsTest {
+
     private final static String ANIMAL_PATH = HOST + "animal/";
     @Test
     @Feature("Verify CRUID Operations on Animal")
@@ -29,13 +31,38 @@ public class AnimalsTest {
     @Feature("Verify CRUID Operations on Animal")
     @Story("Animal requests test")
     @Step("Step Animal GET ID Request")
-
     @DisplayName("Animal GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the details of animal of id=1")
     public void getId_1() {
         AnimalDto example = new AnimalDto(1L, "Волк");
-        AnimalDto receivedDto = given().when().get(ANIMAL_PATH + "1").andReturn().as(AnimalDto.class);
+        AnimalDto receivedDto = given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .when()
+                .get(ANIMAL_PATH + "1")
+                .andReturn()
+                .as(AnimalDto.class);
+        assert example.equals(receivedDto);
+    }
+
+    @Test
+    @Feature("Verify CRUID Operations on Animal")
+    @Story("Animal requests test")
+    @Step("Step Animal GET ID Request with allure parameter")
+    @DisplayName("Animal GET ID Request with allure parameter")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test Description : Verify the details of animal of id=1 with allure parameter")
+    public void getId_10() {
+        Allure.addAttachment("Заголовок вложения", "1000");
+        AnimalDto example = new AnimalDto(1L, "Волк1");
+        AnimalDto receivedDto = given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .when()
+                .get(ANIMAL_PATH + "1")
+                .andReturn()
+                .as(AnimalDto.class);
         assert example.equals(receivedDto);
     }
 
@@ -44,6 +71,12 @@ public class AnimalsTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Show failed test")
     public void getId_1_and_StatusCode400() {
-        given().when().get(ANIMAL_PATH + "1").then().statusCode(200);
+        given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .when()
+                .get(ANIMAL_PATH + "1")
+                .then()
+                .statusCode(200);
     }
 }
