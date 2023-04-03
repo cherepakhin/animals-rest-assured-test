@@ -3,6 +3,7 @@ package ru.perm.v.animals.restassured;
 import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
 import org.testng.annotations.Test;
+import ru.perm.v.animals.restassured.dto.CountryDto;
 
 import static io.restassured.RestAssured.given;
 import static ru.perm.v.animals.restassured.VARS.HOST;

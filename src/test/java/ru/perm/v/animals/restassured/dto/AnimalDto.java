@@ -1,22 +1,20 @@
-package ru.perm.v.animals.restassured;
-
+package ru.perm.v.animals.restassured.dto;
 
 import java.util.Objects;
 
 //TODO: Перенести в библиотеку
-public class CountryDto {
+public class AnimalDto {
 
     private Long id = 0L;
     private String name = "";
 
-    public CountryDto() {
+    public AnimalDto() {
     }
 
-    public CountryDto(Long id, String name) {
+    public AnimalDto(Long id, String name) {
         this.id = id;
         this.name = name;
     }
-
 
     public Long getId() {
         return id;
@@ -38,8 +36,8 @@ public class CountryDto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CountryDto that = (CountryDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
+        AnimalDto animalDto = (AnimalDto) o;
+        return Objects.equals(id, animalDto.id) && Objects.equals(name, animalDto.name);
     }
 
     @Override
