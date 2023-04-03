@@ -1,7 +1,7 @@
 package ru.perm.v.animals.restassured;
 
 import io.qameta.allure.*;
-import io.qameta.allure.junit4.DisplayName;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.perm.v.animals.restassured.dto.CountryDto;
 
@@ -10,6 +10,7 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
 
 @Epic("REST API Country")
 @Feature("Verify Operations getAll(), getById(id) on Country")
+@DisplayName("Тесты GET Contry")
 public class CountryTest {
 
     private final static String COUNTRY_PATH = HOST + "country/";
