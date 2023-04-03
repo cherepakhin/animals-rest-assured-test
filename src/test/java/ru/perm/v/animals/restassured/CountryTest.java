@@ -20,7 +20,7 @@ public class CountryTest {
     @Story("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the HTTP answer of country id=1 is status=200")
-    public void getId_1andStatusCode200() {
+    public void getCountryId_1andStatusCode200() {
         given().when().get(COUNTRY_PATH + "1").then().statusCode(200);
     }
 
@@ -29,18 +29,18 @@ public class CountryTest {
     @DisplayName("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the details of country of id=1")
-    public void getId_1() {
+    public void getCountryId_1() {
         CountryDto example = new CountryDto(1L, "Германия");
         CountryDto receivedDto = given().when().get(COUNTRY_PATH + "1").andReturn().as(CountryDto.class);
         assert example.equals(receivedDto);
     }
 
     @Test
-    @DisplayName("Show failed Animal GET ID Request")
-    @Story("Animal GET ID Request")
+    @DisplayName("Show failed Country GET ID Request")
+    @Story("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Show failed test")
-    public void getId_1andStatusCode400() {
+    public void getCountryId_1andStatusCode400() {
         given().when().get(COUNTRY_PATH + "1").then().statusCode(200);
     }
 }

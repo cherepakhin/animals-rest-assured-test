@@ -23,7 +23,7 @@ public class AnimalsTest {
     @Severity(SeverityLevel.NORMAL) // уровень критичности
     @DisplayName("Animal GET ID Request")
     @Description("Test Description : Verify the HTTP answer of animal id=1 is status=200")
-    public void getId_1andStatusCode200() {
+    public void getAnimal_Id_1_and_StatusCode200() {
         given().when().get(ANIMAL_PATH + "1").then().statusCode(200);
     }
 
@@ -34,7 +34,7 @@ public class AnimalsTest {
     @DisplayName("Animal GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the details of animal of id=1")
-    public void getId_1() {
+    public void getAnimal_Id_1() {
         AnimalDto example = new AnimalDto(1L, "Волк");
         AnimalDto receivedDto = given()
                 .contentType(ContentType.JSON)
@@ -53,16 +53,18 @@ public class AnimalsTest {
     @DisplayName("Animal GET ID Request with allure parameter")
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the details of animal of id=1 with allure parameter")
-    public void getId_10() {
+    public void getAnimal_Id_10() {
         Allure.addAttachment("Заголовок вложения", "1000");
-        AnimalDto example = new AnimalDto(1L, "Волк1");
+        AnimalDto example = new AnimalDto(1L, "Волк");
         AnimalDto receivedDto = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .when()
                 .get(ANIMAL_PATH + "1")
-                .andReturn()
-                .as(AnimalDto.class);
+                .then().statusCode(200)
+                .extract().body()
+                .as(AnimalDto.class)
+                ;
         assert example.equals(receivedDto);
     }
 
