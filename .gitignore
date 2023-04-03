@@ -1,0 +1,12 @@
+.idea/
+/log/
+.allure/
+
+*.iws
+*.iml
+*.zip
+target/
+.settings
+.classpath
+.project
+bin/
