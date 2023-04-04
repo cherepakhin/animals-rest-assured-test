@@ -18,7 +18,7 @@ public class CountryTest {
 
     @Test
     @Step("Step Country GET ID Request")
-    @DisplayName("Country GET ID Request id=1")
+    @DisplayName("Country GET ID Request id=100")
     @Story("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description("Verify the HTTP answer of country id=1 is status=200")
