@@ -10,7 +10,7 @@
     "traceRegex": ".*NullPointerException.*"
   },
   {
-    "name": "Product defects",
+    "name": "Ошибки в проекте",
     "matchedStatuses": ["failed"]
   },
   {
