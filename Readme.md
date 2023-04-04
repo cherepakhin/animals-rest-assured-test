@@ -48,3 +48,6 @@ public class AnimalsTest {
 
 ![Отчет с ошибками](doc/result_test_error.png)
 
+### Шпаргалка по вложенности
+
+![Epic-Feature-Story](doc/hierarchy.png)
