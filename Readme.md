@@ -36,12 +36,15 @@ public class AnimalsTest {
 
 ```
 
-По пакетам 
+По пакетам
+
 ![По пакетам](doc/group_by_package.png)
 
 По строгости (критичности) - аннотация @Severity(SeverityLevel.NORMAL). Работа тега Аннотации Epic, Suite.
+
 ![@DisplayName или Suites](doc/group_by_suites.png)
 
 Отчет с ошибками
+
 ![Отчет с ошибками](doc/result_test_error.png)
 
