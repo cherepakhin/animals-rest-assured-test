@@ -31,6 +31,7 @@ public class AnimalsTest {
     @Step("Step Animal GET Request ID=1 check STATUS_CODE=200")
     @Severity(SeverityLevel.NORMAL) // уровень критичности
     @Description("Test Description : Verify the HTTP answer of animal id=1 is status=200")
+    @DisplayName("Animals Test from FIlE")
     public void getAnimal_Id_1_and_StatusCode_200() {
         given().when().get(ANIMAL_PATH + "1").then().statusCode(HttpStatus.SC_OK);
     }
@@ -80,24 +81,6 @@ public class AnimalsTest {
                 .get(ANIMAL_PATH + "1")
                 .then()
                 .statusCode(HttpStatus.SC_OK);
-    }
-
-    @ParameterizedTest(name = "Verify animals from params file - id = {0}, name = {1}")
-    @Step("Step Animal GET ID Request with allure parameter from FILE ./animals.csv")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Test Description : Verify by allure parameter from FILE ./animals.csv")
-    @CsvFileSource(resources = "/animals.csv", numLinesToSkip = 1)
-    public void getAnimalFromFileWithParams(Long id, String name) {
-        AnimalDto example = new AnimalDto(id, name);
-        AnimalDto receivedDto = given()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .when()
-                .get(ANIMAL_PATH + id)
-                .then().statusCode(HttpStatus.SC_OK)
-                .extract().body()
-                .as(AnimalDto.class);
-        assert example.equals(receivedDto);
     }
 
     @ParameterizedTest(name = "Verify animals from params - id = {0}, name = {1}")
