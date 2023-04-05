@@ -15,7 +15,7 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
 @Tag("animals")
 @Epic("REST API Animal")
 @DisplayName("Animals Test from FIlE")
-@Story("Animal requests test")
+@Story("Animal requests test from FIlE")
 @Feature("Verify CRUD Operations on Animal")
 public class AnimalsFromFileTest {
 

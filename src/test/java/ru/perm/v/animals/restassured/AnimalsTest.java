@@ -31,7 +31,7 @@ public class AnimalsTest {
     @Step("Step Animal GET Request ID=1 check STATUS_CODE=200")
     @Severity(SeverityLevel.NORMAL) // уровень критичности
     @Description("Test Description : Verify the HTTP answer of animal id=1 is status=200")
-    @DisplayName("Animals Test from FIlE")
+    @DisplayName("Animal GET Request ID=1 check STATUS_CODE=200")
     public void getAnimal_Id_1_and_StatusCode_200() {
         given().when().get(ANIMAL_PATH + "1").then().statusCode(HttpStatus.SC_OK);
     }
