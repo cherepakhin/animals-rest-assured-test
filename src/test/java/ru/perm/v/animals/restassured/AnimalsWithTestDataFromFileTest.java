@@ -14,10 +14,10 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
 
 @Tag("animals")
 @Epic("REST API Animal")
-@DisplayName("Animals Test from FIlE")
-@Story("Animal requests test from FIlE")
+@DisplayName("Animals Test with test data from FIlE")
+@Story("Animal requests with test data from FIlE (story)")
 @Feature("Verify CRUD Operations on Animal")
-public class AnimalsFromFileTest {
+public class AnimalsWithTestDataFromFileTest {
 
     private final static String ANIMAL_PATH = HOST + "animal/";
 

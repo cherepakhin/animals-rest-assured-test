@@ -1,8 +1,8 @@
 [
   {
-    "name": "Неизвестная проблема",
-    "matchedStatuses": ["broken", "failed"],
-    "messageRegex": ".*что-то пошло не так.*"
+    "name": "Тесты с данными из файлов",
+    "matchedStatuses": ["broken", "failed", "success"],
+    "messageRegex": ".*FILE.*"
   },
   {
     "name": "Нет данных",
