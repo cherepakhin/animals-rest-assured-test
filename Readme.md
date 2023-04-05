@@ -5,7 +5,7 @@
 
 Для просмотра отчетов Allure [https://docs.qameta.io/allure/](https://docs.qameta.io/allure/)
 
-Скрипты выполнять из папки проекта с тестами Rest Assured
+Скрипты выполнять из папки проекта с тестами Rest Assured. При запуске тестов не забыть запустить сам проект :) [https://github.com/cherepakhin/animals](https://github.com/cherepakhin/animals)
 
 ```shell
 # Проведение теста
