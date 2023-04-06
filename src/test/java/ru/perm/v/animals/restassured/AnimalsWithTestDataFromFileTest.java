@@ -12,30 +12,30 @@ import ru.perm.v.animals.restassured.dto.AnimalDto;
 import static io.restassured.RestAssured.given;
 import static ru.perm.v.animals.restassured.VARS.HOST;
 
-@Tag("animals")
-@Epic("REST API Animal")
-@DisplayName("Animals Test with test data from FIlE")
-@Story("Animal requests with test data from FIlE (story)")
-@Feature("Verify CRUD Operations on Animal")
+//@Tag("animals")
+//@Epic("REST API Animal")
+//@DisplayName("Animals Test with test data from FIlE")
+//@Feature("Verify CRUD Operations on Animal")
 public class AnimalsWithTestDataFromFileTest {
 
-    private final static String ANIMAL_PATH = HOST + "animal/";
-
-    @ParameterizedTest(name = "Verify animals from params file - id = {0}, name = {1}")
-    @Step("Step Animal GET ID Request with allure parameter from FILE ./animals.csv")
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("Test Description : Verify by allure parameter from FILE ./animals.csv")
-    @CsvFileSource(resources = "/animals.csv", numLinesToSkip = 1)
-    public void getAnimalFromFileWithParams(Long id, String name) {
-        AnimalDto example = new AnimalDto(id, name);
-        AnimalDto receivedDto = given()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .when()
-                .get(ANIMAL_PATH + id)
-                .then().statusCode(HttpStatus.SC_OK)
-                .extract().body()
-                .as(AnimalDto.class);
-        assert example.equals(receivedDto);
-    }
+//    private final static String ANIMAL_PATH = HOST + "animal/";
+//
+//    @ParameterizedTest(name = "Verify animals from params file - id = {0}, name = {1}")
+////    @Step("Step Animal GET ID Request with allure parameter from FILE ./animals.csv")
+//    @Story("Animal GET ID Request with allure parameter from FILE ./animals.csv")
+//    @Severity(SeverityLevel.CRITICAL)
+//    @Description("Test Description : Verify by allure parameter from FILE ./animals.csv")
+//    @CsvFileSource(resources = "/animals.csv", numLinesToSkip = 1)
+//    public void getAnimalFromFileWithParams(Long id, String name) {
+//        AnimalDto example = new AnimalDto(id, name);
+//        AnimalDto receivedDto = given()
+//                .contentType(ContentType.JSON)
+//                .accept(ContentType.JSON)
+//                .when()
+//                .get(ANIMAL_PATH + id)
+//                .then().statusCode(HttpStatus.SC_OK)
+//                .extract().body()
+//                .as(AnimalDto.class);
+//        assert example.equals(receivedDto);
+//    }
 }

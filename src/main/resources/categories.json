@@ -1,20 +1,10 @@
 [
   {
-    "name": "Тесты с данными из файлов",
-    "matchedStatuses": ["broken", "failed", "success"],
-    "messageRegex": ".*FILE.*"
-  },
-  {
-    "name": "Нет данных",
-    "matchedStatuses": ["broken"],
-    "traceRegex": ".*NullPointerException.*"
-  },
-  {
-    "name": "Ошибки в проекте",
+    "name": "Product defects",
     "matchedStatuses": ["failed"]
   },
   {
-    "name": "Test defects",
-    "matchedStatuses": ["broken"]
+    "name": "Ignored tests",
+    "matchedStatuses": [ "skipped" ]
   }
 ]
