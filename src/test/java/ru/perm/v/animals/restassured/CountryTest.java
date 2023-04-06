@@ -66,8 +66,7 @@ public class CountryTest {
 
     @Epic("REST API Country")
     @Feature("Verify Operations getAll(), getById(id) on Country")
-    //TODO: Как обозначить пропускаемые тесты?
-    @Disabled("Disable for example")
+    @Disabled("Disable for example") //пропускаемый тест, но в отчете будет подсвечен
     @Story("Story Skip example")
 
     @DisplayName("Show failed Country GET ID Request")
