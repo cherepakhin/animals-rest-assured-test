@@ -15,6 +15,12 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
 //@Epic(value = "Математика")
 //@Feature(value = "Простые математические операции")
 //@Story(value = "Вычитание")
+
+// Результаты ОДНИХ И ТЕХ ЖЕ ТЕСТОВ можно отразить в разных ветках. Аннотации размещать над МЕТОДАМИ.
+//@Epics(value = {@Epic(value = "Математика"), @Epic(value = "Геометрия")})
+//@Features(value = {@Feature(value = "Тригонометрия"), @Feature(value = "Простые математические операции")})
+//@Stories(value = {@Story(value = "Синус"), @Story(value = "Синусоида")})
+
 @DisplayName("Тесты GET Country")
 public class CountryTest {
     private final static String COUNTRY_PATH = HOST + "country/";
@@ -32,7 +38,9 @@ public class CountryTest {
         given().when().get(COUNTRY_PATH + "1").then().statusCode(HttpStatus.SC_OK);
     }
 
-
+    @Disabled // См.ниже TODO: Для того чтобы создать тест @RunWith(Parameterized.class) с параметрами...
+    //TODO: Перенести в отдельный тест для наглядности, чтобы тут не путался, т.к. это уже не совсем junit тест
+    @Test
     @Epic("REST API Country")
     @Feature("Verify Operations getAll(), getById(id) on Country")
     @Story("Story Country GET ID=1 Request")
@@ -41,7 +49,26 @@ public class CountryTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Test Description : Verify the details of country of id=1")
     public void getCountryId(Integer id) {
-        //TODO: Дать на вход ID COUNTRY
+//TODO: Для того чтобы создать тест с параметрами,
+// нужно создавать отдельный тест с провайдером тестовых данных dataProvider()
+// https://habr.com/ru/companies/sberbank/articles/359302/
+//        @Parameters(name = "operand1 = {0} | operand2 = {1} | expectedResult = {2}")
+//        public static Collection<Integer[]> dataProvider() {
+//            return Arrays.asList(new Integer[][]{
+//                    {1, 2, 3},
+//                    {2, 4, 6},
+//                    {5, 6, 11},
+//                    {7, 5, 12},
+//                    {2, 4, 5},
+//                    {4, 1, 5},
+//                    {8, 2, 11}
+//            });
+//        }
+//
+//        @Test
+//        public void checkSum() {
+//            Assert.assertTrue("Сумма слагаемых не соответствует ожидаемому значению", operand1 + operand2 == expectedResult);
+//        }
         CountryDto example = new CountryDto(1L, "Германия");
         CountryDto receivedDto = given().when().get(COUNTRY_PATH + "1").andReturn().as(CountryDto.class);
         assert example.equals(receivedDto);
