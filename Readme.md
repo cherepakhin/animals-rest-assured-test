@@ -5,7 +5,9 @@
 
 Для просмотра отчетов Allure [https://docs.qameta.io/allure/](https://docs.qameta.io/allure/)
 
-Скрипты выполнять из папки проекта с тестами Rest Assured. При запуске тестов не забыть запустить сам проект :) [https://github.com/cherepakhin/animals](https://github.com/cherepakhin/animals)
+Скрипты выполнять из папки проекта с тестами Rest Assured. 
+Перед запуском тестов нужно запустить сам проект:
+[https://github.com/cherepakhin/animals](https://github.com/cherepakhin/animals)
 
 ```shell
 # Проведение теста
@@ -40,7 +42,7 @@ public class AnimalsTest {
 
 ![По пакетам](doc/group_by_package.png)
 
-По строгости (критичности) - аннотация @Severity(SeverityLevel.NORMAL). Работа тега Аннотации Epic, Suite.:
+По строгости (критичности) - аннотация @Severity(SeverityLevel.NORMAL). Работа аннотаций @Epic, @Suite:
 
 ![@DisplayName или Suites](doc/group_by_suites.png)
 
