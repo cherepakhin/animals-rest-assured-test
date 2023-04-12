@@ -13,7 +13,7 @@
 # Проведение теста
 animals-restassured-test$ mvn clean test
 # Просмотр отчета в браузере
-animals-restassured-test$ ./allure serve target/surefire-reports/
+animals-restassured-test$ ./`allure serve target/surefire-reports/`
 ```
 
 ### Скользкие вопросы
@@ -22,7 +22,16 @@ animals-restassured-test$ ./allure serve target/surefire-reports/
 Получается, что в тестах нужно вести свою модель DTO. 
 Разработчик пишет свою модель DTO, а тестировщик ведет свою модель DTO. 
 
+### TODO
+
+1. Вкладка "Categories" пустая
+2. Parametrized test
+3. Упорядочить в дерево "Behaviors", "Categories"
+4. Нет "Timeline"
+
+
 ### Памятка по группировке тестов allure
+
 
 Пример:
 
@@ -53,3 +62,25 @@ public class AnimalsTest {
 ### Шпаргалка по вложенности
 
 ![Epic-Feature-Story](doc/hierarchy.png)
+
+### Закладки
+
+https://docs.qameta.io/allure/
+https://allure-framework.github.io/allure-demo/5/#suites/a2891ce60e520f56ae25e6caf68ea773/448aea45096280d4/
+
+~/prog/java/allure-examples/allure-junit5
+
+````shell
+$ cd ~/prog/java/allure-examples/allure-junit5
+$ mvn clean test
+$ allure serve allure-results/
+````
+
+~/prog/java/allure-examples/allure-junit5-example
+
+````shell
+$ cd ~/prog/java/allure-examples/allure-junit5-example
+$ mvn clean test
+$ ~/prog/java/allure-examples/allure-junit5-example$ allure serve allure-results/
+````
+

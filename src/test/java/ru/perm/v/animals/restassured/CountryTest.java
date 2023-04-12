@@ -24,31 +24,33 @@ import static ru.perm.v.animals.restassured.VARS.HOST;
 
 @DisplayName("Тесты GET Country")
 public class CountryTest {
+
     private final static String COUNTRY_PATH = HOST + "country/";
 
     @Epic("REST API Country")
     @Feature("Verify Operations getAll(), getById(id) on Country")
     @Story("Story Country GET ID Request")
 
-    @DisplayName("Country GET ID Request id=1 is status=200")
+    @DisplayName("Country GET ID Request id=100 is status=200")
 //    @Step("Step Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
     @Description(value = "Verify the HTTP answer of country id=1 is status=200")
     @Test
-    public void getCountryId_1_and_StatusCode_200() {
-        given().when().get(COUNTRY_PATH + "1").then().statusCode(HttpStatus.SC_OK);
+    public void getCountryId_100_and_StatusCode_200() {
+        given().when().get(COUNTRY_PATH + "100").then().statusCode(HttpStatus.SC_OK);
     }
 
-    @Disabled // См.ниже TODO: Для того чтобы создать тест @RunWith(Parameterized.class) с параметрами...
+    @Disabled // @RunWith(Parameterized.class) с параметрами...
     //TODO: Перенести в отдельный тест для наглядности, чтобы тут не путался, т.к. это уже не совсем junit тест
+    // Пример теста с аннотацией @RunWith(Parameterized.class) с параметрами...
     @Test
     @Epic("REST API Country")
     @Feature("Verify Operations getAll(), getById(id) on Country")
-    @Story("Story Country GET ID=1 Request")
+    @Story("Story Country GET ID=100 Request")
 
     @DisplayName("Country GET ID Request")
     @Severity(SeverityLevel.NORMAL)
-    @Description(value = "Test Description : Verify the details of country of id=1")
+    @Description(value = "Test Description : Verify the details of country of id=100")
     public void getCountryId(Integer id) {
 //TODO: Для того чтобы создать тест с параметрами,
 // нужно создавать отдельный тест с провайдером тестовых данных dataProvider()
@@ -70,8 +72,8 @@ public class CountryTest {
 //        public void checkSum() {
 //            Assert.assertTrue("Сумма слагаемых не соответствует ожидаемому значению", operand1 + operand2 == expectedResult);
 //        }
-        CountryDto example = new CountryDto(1L, "Германия");
-        CountryDto receivedDto = given().when().get(COUNTRY_PATH + "1").andReturn().as(CountryDto.class);
+        CountryDto example = new CountryDto(100L, "Германия");
+        CountryDto receivedDto = given().when().get(COUNTRY_PATH + "100").andReturn().as(CountryDto.class);
         assert example.equals(receivedDto);
     }
 
@@ -79,18 +81,19 @@ public class CountryTest {
 
     @Epic("REST API Country")
     @Feature("Verify Operations getAll(), getById(id) on Country")
-    @Story("Story Country GET ID=1 Request and Status code 200")
+    @Story("Story Country GET ID=100 Request and Status code 200")
 
     @DisplayName("Show failed Country GET ID Request")
 //    @Step("Step Country GET ID=1 Request")
     @Severity(SeverityLevel.NORMAL)
     @Description(value = "Test Description : Show failed test")
     public void getCountryId_100_and_StatusCode_500() {
-        String COUNTY_ID = "100";
+        String COUNTY_ID = "5555";
         given().when().get(COUNTRY_PATH + COUNTY_ID).then().statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
         Allure.addAttachment("Результат", "text/plain", "Какой-то текст");
     }
 
+    //Тест пропущен для демонстрации. НО в отчете будет подсвечен
     @Test
 
     @Epic("REST API Country")
